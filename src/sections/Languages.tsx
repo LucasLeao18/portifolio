@@ -17,19 +17,19 @@ export default function Languages() {
               <div className="card p-7">
                 <div className="mb-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f5f5f7] text-[#1d1d1f]">
-                      <LanguagesIcon size={18} />
+                    <span className="flex h-10 w-10 items-center justify-center border border-[var(--border-soft)] bg-[rgba(46,232,143,0.1)] text-[var(--accent)]">
+                      <LanguagesIcon size={18} aria-hidden="true" />
                     </span>
                     <div>
-                      <span className="font-semibold text-[#1d1d1f]">{lang.name}</span>
-                      <span className="ml-2 text-sm text-[#6e6e73]">{lang.level}</span>
+                      <span className="font-semibold text-[var(--text)]">{lang.name}</span>
+                      <span className="ml-2 text-sm text-[var(--text-muted)]">{lang.level}</span>
                     </div>
                   </div>
-                  <span className="text-sm font-medium text-[#86868b]">{lang.percent}%</span>
+                  <span className="text-sm font-medium text-[var(--text-muted)]">{lang.percent}%</span>
                 </div>
-                <div className="h-1.5 w-full overflow-hidden rounded-full bg-[#e8e8ed]">
+                <div className="h-1.5 w-full overflow-hidden bg-[var(--border-soft)]">
                   <div
-                    className="h-full rounded-full bg-[#1d1d1f]"
+                    className="h-full bg-[var(--accent)]"
                     style={{ width: `${lang.percent}%` }}
                   />
                 </div>

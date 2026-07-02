@@ -44,12 +44,12 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-[#d2d2d7]/60 bg-white/80 backdrop-blur-xl backdrop-saturate-150"
+          ? "border-b border-[var(--border-soft)] bg-[rgba(8,10,15,0.86)] backdrop-blur-xl backdrop-saturate-150"
           : "border-b border-transparent bg-transparent"
       }`}
     >
       <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-        <a href="#hero" className="text-base font-semibold tracking-tight text-[#1d1d1f]">
+        <a href="#hero" className="focus-ring text-base font-semibold text-[var(--text)]">
           Lucas Leão
         </a>
 
@@ -61,8 +61,8 @@ export default function Navbar() {
                 href={l.href}
                 className={`text-[13px] transition-colors ${
                   active === l.href.slice(1)
-                    ? "text-[#1d1d1f]"
-                    : "text-[#6e6e73] hover:text-[#1d1d1f]"
+                    ? "text-[var(--accent)]"
+                    : "text-[var(--text-muted)] hover:text-[var(--text)]"
                 }`}
               >
                 {l.label}
@@ -73,14 +73,14 @@ export default function Navbar() {
 
         <a
           href="#contato"
-          className="hidden rounded-full bg-[#1d1d1f] px-4 py-1.5 text-[13px] font-medium text-white transition-colors hover:bg-black md:block"
+          className="focus-ring hidden min-h-11 items-center bg-[var(--accent)] px-4 py-2 text-[13px] font-semibold text-[#06210f] transition-colors hover:bg-[var(--accent-strong)] md:inline-flex"
         >
           Contato
         </a>
 
         {/* Mobile toggle */}
         <button
-          className="text-[#1d1d1f] md:hidden"
+          className="focus-ring flex h-11 w-11 items-center justify-center text-[var(--text)] md:hidden"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Fechar menu" : "Abrir menu"}
         >
@@ -90,14 +90,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="border-t border-[#e8e8ed] bg-white/95 px-6 pb-5 backdrop-blur-xl md:hidden">
+        <div className="border-t border-[var(--border-soft)] bg-[rgba(8,10,15,0.96)] px-6 pb-5 backdrop-blur-xl md:hidden">
           <ul className="flex flex-col pt-2">
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
-                  className="block border-b border-[#f0f0f2] py-3 text-[#1d1d1f] transition-colors hover:text-[#6e6e73]"
+                  className="focus-ring block min-h-11 border-b border-[var(--border-soft)] py-3 text-[var(--text)] transition-colors hover:text-[var(--accent)]"
                 >
                   {l.label}
                 </a>

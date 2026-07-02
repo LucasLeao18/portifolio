@@ -9,12 +9,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lucas Leão — Desenvolvedor Full Stack Júnior",
+  title: "Lucas Leão — Full Stack, IA e Segurança",
   description:
-    "Portfólio de Lucas Leão, Desenvolvedor Full Stack Júnior com experiência em React, Next.js, Node.js, NestJS, APIs REST e soluções web escaláveis.",
+    "Portfólio de Lucas Leão, Desenvolvedor Full Stack Júnior com experiência em React, Next.js, Node.js, NestJS, APIs REST, e-commerce e estudos em IA aplicada a fraudes bancárias.",
   keywords: [
     "desenvolvedor full stack júnior",
     "programador júnior",
+    "inteligência artificial",
+    "machine learning",
+    "cibersegurança",
     "React",
     "Next.js",
     "Node.js",
@@ -24,9 +27,10 @@ export const metadata: Metadata = {
     "portfólio",
   ],
   openGraph: {
-    title: "Lucas Leão — Desenvolvedor Full Stack Júnior",
+    title: "Lucas Leão — Full Stack, IA e Segurança",
     description:
-      "Portfólio de Lucas Leão, Desenvolvedor Full Stack Júnior com experiência em React, Next.js, Node.js, NestJS e APIs REST.",
+      "Portfólio de Lucas Leão, Desenvolvedor Full Stack Júnior com experiência em aplicações web, APIs REST, e-commerce e IA aplicada.",
+    images: ["https://avatars.githubusercontent.com/u/130196100?v=4"],
     locale: "pt_BR",
     type: "website",
   },

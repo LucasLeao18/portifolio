@@ -35,8 +35,14 @@ export const projects: Project[] = [
     id: 3,
     name: "Detecção de Fraudes Bancárias",
     description:
-      "Projeto com aplicação de modelos de machine learning para identificação de possíveis fraudes bancárias, com preparação e análise de dados.",
-    technologies: ["Python", "Machine Learning", "Análise de Dados", "Preparação de Dados"],
+      "Projeto em evolução com aplicação de inteligência artificial e modelos de machine learning para identificar padrões de risco em transações e apoiar a detecção de possíveis fraudes bancárias.",
+    highlights: [
+      "Foco em IA aplicada a um problema financeiro real",
+      "Preparação, análise e validação de dados",
+      "Estudo de modelos para classificação de transações suspeitas",
+      "Conexão direta com interesse em cibersegurança",
+    ],
+    technologies: ["Python", "Machine Learning", "IA", "Análise de Dados", "Detecção de Fraudes"],
     githubUrl: "https://github.com/LucasLeao18",
   },
   {

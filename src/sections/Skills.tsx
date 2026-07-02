@@ -1,10 +1,12 @@
-import { Layers, Server, Database, Shield, Cloud, FlaskConical, Plug } from "lucide-react";
+import { BrainCircuit, Code2, Layers, Server, Database, Shield, Cloud, FlaskConical, Plug } from "lucide-react";
 import SectionWrapper from "@/components/SectionWrapper";
 import SectionTitle from "@/components/SectionTitle";
 import Badge from "@/components/Badge";
 import { skills } from "@/data/skills";
 
 const categoryIcons: Record<string, React.ElementType> = {
+  "IA & Dados": BrainCircuit,
+  "Linguagens & Fundamentos": Code2,
   "Frontend": Layers,
   "Backend": Server,
   "Banco de Dados": Database,
@@ -15,27 +17,27 @@ const categoryIcons: Record<string, React.ElementType> = {
 };
 
 const marquee = [
+  "Java", "Python", "Machine Learning", "IA", "Cibersegurança", "Lua",
   "JavaScript", "TypeScript", "React", "Next.js", "Node.js", "NestJS",
   "Express", "Prisma", "MongoDB", "Docker", "Redis", "Tailwind CSS",
-  "AWS", "JWT", "Jest", "GitHub",
 ];
 
 export default function Skills() {
   return (
     <section id="habilidades" className="px-6 py-28">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <SectionWrapper>
           <SectionTitle eyebrow="Stack">Habilidades Técnicas</SectionTitle>
         </SectionWrapper>
 
         {/* Marquee */}
         <SectionWrapper>
-          <div className="marquee-mask mb-12 flex overflow-hidden">
+          <div className="marquee-mask mb-12 flex w-full min-w-0 overflow-hidden">
             <div className="marquee-track flex shrink-0 gap-3 pr-3">
               {[...marquee, ...marquee].map((t, i) => (
                 <span
                   key={i}
-                  className="whitespace-nowrap rounded-full border border-[#e8e8ed] bg-[#f5f5f7] px-4 py-2 text-sm font-medium text-[#1d1d1f]"
+                  className="whitespace-nowrap border border-[var(--border-soft)] bg-[rgba(255,255,255,0.035)] px-4 py-2 text-sm font-medium text-[var(--text-soft)]"
                 >
                   {t}
                 </span>
@@ -49,10 +51,10 @@ export default function Skills() {
             const Icon = categoryIcons[cat.name] ?? Layers;
             return (
               <SectionWrapper key={cat.name} delay={(i % 2) * 0.08}>
-                <div className="card card-hover h-full p-7">
-                  <h3 className="mb-5 flex items-center gap-3 text-base font-semibold text-[#1d1d1f]">
-                    <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f5f5f7] text-[#1d1d1f]">
-                      <Icon size={17} />
+                  <div className="card card-hover h-full p-7">
+                  <h3 className="mb-5 flex items-center gap-3 text-base font-semibold text-[var(--text)]">
+                    <span className="flex h-9 w-9 items-center justify-center border border-[var(--border-soft)] bg-[rgba(46,232,143,0.1)] text-[var(--accent)]">
+                      <Icon size={17} aria-hidden="true" />
                     </span>
                     {cat.name}
                   </h3>

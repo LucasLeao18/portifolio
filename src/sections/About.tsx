@@ -1,14 +1,33 @@
-import { MapPin, Mail } from "lucide-react";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+import Image from "next/image";
+import { BrainCircuit, Code2, Mail, MapPin, ShieldCheck } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import SectionWrapper from "@/components/SectionWrapper";
 import SectionTitle from "@/components/SectionTitle";
 import { profile } from "@/data/profile";
 
 const stats = [
-  { label: "Anos estudando", value: "5+" },
+  { label: "Acessos mensais no Ads Flow", value: "2k+" },
   { label: "Projetos full stack", value: "21+" },
-  { label: "Acessos/mês", value: "2k+" },
-  { label: "Experiências", value: "2" },
+  { label: "Formação em Sistemas de Informação", value: "UPE" },
+  { label: "Foco atual em IA e segurança", value: "IA" },
+];
+
+const pillars = [
+  {
+    Icon: Code2,
+    title: "Construção full stack",
+    text: "Interfaces, APIs REST, autenticação, painéis administrativos, integrações e deploy.",
+  },
+  {
+    Icon: BrainCircuit,
+    title: "IA aplicada",
+    text: "Estudo de Python e machine learning para resolver problemas como detecção de fraude bancária.",
+  },
+  {
+    Icon: ShieldCheck,
+    title: "Mentalidade de segurança",
+    text: "Interesse em cibersegurança com prática em validação, JWT, sanitização e proteção de dados.",
+  },
 ];
 
 export default function About() {
@@ -16,70 +35,87 @@ export default function About() {
 
   return (
     <section id="sobre" className="px-6 py-28">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <SectionWrapper>
           <SectionTitle eyebrow="Perfil">Sobre Mim</SectionTitle>
         </SectionWrapper>
 
-        <div className="grid gap-8 lg:grid-cols-5">
-          {/* Info card */}
-          <SectionWrapper delay={0.1} className="lg:col-span-2">
-            <div className="card sticky top-24 p-8">
-              <div className="mb-6 flex justify-center">
-                <div className="flex h-24 w-24 items-center justify-center rounded-full bg-[#1d1d1f] text-3xl font-semibold text-white select-none">
-                  LL
-                </div>
+        <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
+          <SectionWrapper delay={0.1}>
+            <aside className="card sticky top-24 p-6">
+              <div className="relative mx-auto aspect-square w-32 overflow-hidden border border-[var(--border)] bg-[var(--bg-soft)]">
+                <Image
+                  src={profile.avatar}
+                  alt="Foto de Lucas Leão"
+                  fill
+                  sizes="128px"
+                  className="object-cover"
+                />
               </div>
-              <h3 className="text-center text-lg font-semibold text-[#1d1d1f]">{profile.name}</h3>
-              <p className="mt-1 text-center text-sm text-[#6e6e73]">{profile.title}</p>
 
-              <div className="mt-6 space-y-1 border-t border-[#f0f0f2] pt-5">
+              <h3 className="mt-6 text-center text-lg font-semibold text-[var(--text)]">{profile.name}</h3>
+              <p className="mt-2 text-center text-sm leading-6 text-[var(--text-muted)]">{profile.title}</p>
+
+              <div className="mt-6 space-y-1 border-t border-[var(--border-soft)] pt-5">
                 {[
                   { Icon: MapPin, text: profile.location },
-                  { Icon: Mail, text: profile.email, href: `mailto:${profile.email}` },
+                  { Icon: Mail, text: profile.emailLabel, href: "#contato" },
                   { Icon: FaLinkedin, text: "linkedin.com/in/lucasleão18", href: profile.linkedin },
                   { Icon: FaGithub, text: "github.com/LucasLeao18", href: profile.github },
                 ].map(({ Icon, text, href }) => {
+                  const isExternal = href && !href.startsWith("#");
                   const inner = (
                     <>
-                      <Icon size={15} className="flex-shrink-0 text-[#86868b]" />
+                      <Icon size={16} className="flex-shrink-0 text-[var(--accent)]" aria-hidden="true" />
                       <span className="truncate">{text}</span>
                     </>
                   );
+
                   return href ? (
                     <a
                       key={text}
                       href={href}
-                      target={href.startsWith("mailto") ? undefined : "_blank"}
+                      target={isExternal ? "_blank" : undefined}
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 rounded-lg px-2 py-2 text-sm text-[#424245] transition-colors hover:bg-[#f5f5f7]"
+                      className="focus-ring flex min-h-11 items-center gap-3 px-2 py-2 text-sm text-[var(--text-soft)] transition-colors hover:bg-[rgba(255,255,255,0.04)] hover:text-[var(--text)]"
                     >
                       {inner}
                     </a>
                   ) : (
-                    <div key={text} className="flex items-center gap-3 px-2 py-2 text-sm text-[#424245]">
+                    <div key={text} className="flex min-h-11 items-center gap-3 px-2 py-2 text-sm text-[var(--text-soft)]">
                       {inner}
                     </div>
                   );
                 })}
               </div>
-            </div>
+            </aside>
           </SectionWrapper>
 
-          {/* Bio + stats */}
-          <SectionWrapper delay={0.2} className="lg:col-span-3">
-            <div className="space-y-5">
-              {paragraphs.map((p, i) => (
-                <p key={i} className="text-lg leading-relaxed text-[#424245]">
-                  {p}
-                </p>
-              ))}
+          <SectionWrapper delay={0.2}>
+            <div className="space-y-8">
+              <div className="space-y-5">
+                {paragraphs.map((p, i) => (
+                  <p key={i} className="text-lg leading-8 text-[var(--text-soft)]">
+                    {p}
+                  </p>
+                ))}
+              </div>
 
-              <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[#e8e8ed] bg-[#e8e8ed] sm:grid-cols-4">
+              <div className="grid gap-4 md:grid-cols-3">
+                {pillars.map(({ Icon, title, text }) => (
+                  <div key={title} className="card h-full p-5">
+                    <Icon size={20} className="mb-4 text-[var(--accent)]" aria-hidden="true" />
+                    <h3 className="text-base font-semibold text-[var(--text)]">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">{text}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 overflow-hidden border border-[var(--border-soft)] sm:grid-cols-4">
                 {stats.map((stat) => (
-                  <div key={stat.label} className="bg-white p-5 text-center">
-                    <p className="text-3xl font-semibold text-[#1d1d1f]">{stat.value}</p>
-                    <p className="mt-1 text-xs leading-tight text-[#6e6e73]">{stat.label}</p>
+                  <div key={stat.label} className="border border-[var(--border-soft)] bg-[rgba(255,255,255,0.03)] p-5">
+                    <p className="text-3xl font-semibold text-[var(--accent)]">{stat.value}</p>
+                    <p className="mt-2 text-xs leading-5 text-[var(--text-muted)]">{stat.label}</p>
                   </div>
                 ))}
               </div>

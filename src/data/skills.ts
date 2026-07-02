@@ -5,6 +5,20 @@ export interface SkillCategory {
 
 export const skills: SkillCategory[] = [
   {
+    name: "IA & Dados",
+    items: [
+      "Python", "Machine Learning", "Detecção de Fraudes", "Análise de Dados",
+      "Preparação de Dados", "Modelos Preditivos", "Automação", "Aplicações com IA",
+    ],
+  },
+  {
+    name: "Linguagens & Fundamentos",
+    items: [
+      "Java", "Python", "Lua", "JavaScript", "TypeScript",
+      "POO", "Estruturas de Dados", "Lógica de Programação", "APIs REST",
+    ],
+  },
+  {
     name: "Frontend",
     items: [
       "JavaScript", "TypeScript", "React 18", "Next.js 14", "App Router",

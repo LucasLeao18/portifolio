@@ -3,13 +3,13 @@ import { profile } from "@/data/profile";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#e8e8ed] px-6 py-10">
+    <footer className="border-t border-[var(--border-soft)] px-6 py-10">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-5 sm:flex-row">
-        <a href="#hero" className="text-base font-semibold tracking-tight text-[#1d1d1f]">
+        <a href="#hero" className="focus-ring text-base font-semibold text-[var(--text)]">
           Lucas Leão
         </a>
 
-        <p className="text-center text-xs text-[#86868b]">
+        <p className="text-center text-xs text-[var(--text-muted)]">
           © {new Date().getFullYear()} {profile.name} · Feito com Next.js & Tailwind CSS
         </p>
 
@@ -19,18 +19,18 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d2d2d7] text-[#6e6e73] transition-colors hover:bg-[#f5f5f7] hover:text-[#1d1d1f]"
+            className="focus-ring flex h-11 w-11 items-center justify-center border border-[var(--border)] text-[var(--text-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
-            <FaGithub size={16} />
+            <FaGithub size={17} aria-hidden="true" />
           </a>
           <a
             href={profile.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#d2d2d7] text-[#6e6e73] transition-colors hover:bg-[#f5f5f7] hover:text-[#1d1d1f]"
+            className="focus-ring flex h-11 w-11 items-center justify-center border border-[var(--border)] text-[var(--text-muted)] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
           >
-            <FaLinkedin size={16} />
+            <FaLinkedin size={17} aria-hidden="true" />
           </a>
         </div>
       </div>
